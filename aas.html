@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Automation Society — Join the Movement</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #06060C;
+      --surface: #0D0D1A;
+      --elevated: #14142A;
+      --lime: #B8FF00;
+      --lime-dim: rgba(184,255,0,0.12);
+      --lime-mid: rgba(184,255,0,0.35);
+      --text: #EEF0F8;
+      --muted: #7270A0;
+      --border: rgba(184,255,0,0.1);
+      --border-subtle: rgba(255,255,255,0.06);
+    }
+
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Outfit', sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Grain overlay */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.04;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+    }
+
+    /* ─── NAV ─────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 500;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 2.5rem;
+      background: rgba(6,6,12,0.75);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: 'Bebas Neue', cursive;
+      font-size: 1.35rem;
+      letter-spacing: 0.14em;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .nav-logo .pulse-dot {
+      width: 7px; height: 7px;
+      background: var(--lime);
+      border-radius: 50%;
+      animation: livePulse 2.4s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes livePulse {
+      0%,100% { box-shadow: 0 0 0 0 rgba(184,255,0,0.5); opacity:1; }
+      50% { box-shadow: 0 0 0 5px rgba(184,255,0,0); opacity:0.75; }
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    .btn-nav {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.55rem 1.4rem;
+      background: var(--lime);
+      color: #06060C;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.15s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.15s ease;
+    }
+    .btn-nav:hover { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(184,255,0,0.35); }
+    .btn-nav:active { transform: translateY(0); }
+
+    /* ─── HERO ────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 9rem 2.5rem 5rem;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    /* Animated orbs */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      will-change: transform;
+    }
+
+    .orb-1 {
+      width: 650px; height: 650px;
+      background: radial-gradient(circle, rgba(184,255,0,0.16) 0%, transparent 65%);
+      top: -15%; right: -8%;
+      animation: orbDrift 14s ease-in-out infinite;
+    }
+    .orb-2 {
+      width: 450px; height: 450px;
+      background: radial-gradient(circle, rgba(100,60,255,0.13) 0%, transparent 65%);
+      bottom: 5%; left: -8%;
+      animation: orbDrift 18s ease-in-out infinite reverse;
+    }
+    .orb-3 {
+      width: 280px; height: 280px;
+      background: radial-gradient(circle, rgba(0,200,160,0.1) 0%, transparent 65%);
+      top: 55%; left: 45%;
+      animation: orbDrift 10s ease-in-out infinite 3s;
+    }
+
+    @keyframes orbDrift {
+      0%,100% { transform: translate(0,0) scale(1); }
+      33%      { transform: translate(28px,-22px) scale(1.05); }
+      66%      { transform: translate(-18px,28px) scale(0.96); }
+    }
+
+    /* Grid */
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(184,255,0,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(184,255,0,0.035) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: radial-gradient(ellipse 75% 70% at 50% 50%, black 20%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 75% 70% at 50% 50%, black 20%, transparent 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.4rem 1.1rem;
+      background: rgba(184,255,0,0.07);
+      border: 1px solid rgba(184,255,0,0.18);
+      margin-bottom: 2rem;
+      animation: fadeUp 0.7s ease both;
+    }
+    .eyebrow-line { width: 22px; height: 1px; background: var(--lime); }
+    .eyebrow span {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--lime);
+    }
+
+    h1 {
+      font-family: 'Bebas Neue', cursive;
+      font-size: clamp(4.5rem, 11vw, 9.5rem);
+      line-height: 0.9;
+      letter-spacing: 0.02em;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.7s ease 0.1s both;
+    }
+    h1 .lime { color: var(--lime); display: block; }
+    h1 .dim { color: rgba(238,240,248,0.25); }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 500px;
+      margin-bottom: 2.5rem;
+      animation: fadeUp 0.7s ease 0.2s both;
+    }
+
+    .hero-ctas {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      animation: fadeUp 0.7s ease 0.3s both;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.9rem 2rem;
+      background: var(--lime);
+      color: #06060C;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s ease;
+    }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 36px rgba(184,255,0,0.4); }
+    .btn-primary:active { transform: translateY(0); }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 2rem;
+      background: transparent;
+      color: var(--text);
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-decoration: none;
+      border: 1px solid rgba(238,240,248,0.14);
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-ghost:hover { border-color: rgba(238,240,248,0.3); background: rgba(238,240,248,0.04); }
+
+    .hero-metrics {
+      display: flex;
+      gap: 3rem;
+      margin-top: 4.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      animation: fadeUp 0.7s ease 0.4s both;
+    }
+    .metric .num {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 2.6rem;
+      color: var(--lime);
+      line-height: 1;
+      letter-spacing: 0.04em;
+    }
+    .metric .lbl {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.66rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 0.3rem;
+    }
+
+    @keyframes fadeUp {
+      from { opacity:0; transform: translateY(28px); }
+      to   { opacity:1; transform: translateY(0); }
+    }
+
+    /* ─── MARQUEE ─────────────────────────────────────── */
+    .marquee-wrap {
+      overflow: hidden;
+      background: var(--surface);
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 1rem 0;
+    }
+    .marquee-track {
+      display: flex;
+      gap: 3rem;
+      animation: marquee 28s linear infinite;
+      width: max-content;
+    }
+    .marquee-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .marquee-item .dot { width:4px; height:4px; background:var(--lime); border-radius:50%; flex-shrink:0; }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ─── SECTIONS ────────────────────────────────────── */
+    .section { padding: 6rem 2.5rem; max-width: 1200px; margin: 0 auto; }
+
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--lime);
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-family: 'Bebas Neue', cursive;
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      letter-spacing: 0.03em;
+      line-height: 0.95;
+      color: var(--text);
+    }
+    h2 .dim { color: rgba(238,240,248,0.22); }
+
+    /* ─── VALUE GRID ──────────────────────────────────── */
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 3.5rem;
+      background: rgba(184,255,0,0.06);
+    }
+
+    .v-card {
+      background: var(--bg);
+      padding: 2.5rem 2.25rem;
+      cursor: default;
+      transition: background 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .v-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(184,255,0,0.2), transparent);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+    .v-card:hover { background: var(--surface); }
+    .v-card:hover::after { transform: scaleX(1); }
+
+    .v-icon {
+      width: 44px; height: 44px;
+      background: var(--lime-dim);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      transition: background 0.25s, transform 0.2s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .v-card:hover .v-icon { background: rgba(184,255,0,0.2); transform: scale(1.1); }
+
+    .v-card h3 {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 1.45rem;
+      letter-spacing: 0.06em;
+      color: var(--text);
+      margin-bottom: 0.7rem;
+    }
+    .v-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.75; }
+
+    /* ─── FEATURES ────────────────────────────────────── */
+    .features-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+      margin-top: 3.5rem;
+    }
+
+    .feat-list { display: flex; flex-direction: column; }
+
+    .feat-row {
+      display: flex;
+      gap: 1.25rem;
+      padding: 1.6rem 0;
+      border-bottom: 1px solid var(--border-subtle);
+      cursor: default;
+      transition: padding-left 0.25s ease;
+    }
+    .feat-row:first-child { border-top: 1px solid var(--border-subtle); }
+    .feat-row:hover { padding-left: 0.6rem; }
+
+    .feat-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.66rem;
+      color: var(--lime);
+      padding-top: 0.2rem;
+      flex-shrink: 0;
+      letter-spacing: 0.06em;
+    }
+
+    .feat-row h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.35rem;
+    }
+    .feat-row p { font-size: 0.84rem; color: var(--muted); line-height: 1.65; }
+
+    /* Terminal card */
+    .terminal-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .terminal-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 10%, var(--lime) 50%, transparent 90%);
+    }
+
+    .tc-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.9rem 1.25rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .tc-dot { width: 9px; height: 9px; border-radius: 50%; }
+    .tc-label {
+      margin-left: 0.5rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+    }
+
+    .tc-body { padding: 1.25rem; }
+
+    .wf-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.7rem 0.9rem;
+      margin-bottom: 0.4rem;
+      background: var(--elevated);
+      border-left: 2px solid transparent;
+      cursor: default;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .wf-row:hover { border-color: var(--lime); background: rgba(184,255,0,0.04); }
+
+    .wf-icon {
+      width: 30px; height: 30px;
+      background: rgba(184,255,0,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+    .wf-text { font-size: 0.79rem; color: var(--text); flex: 1; min-width: 0; }
+    .wf-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      color: var(--lime);
+      background: rgba(184,255,0,0.07);
+      padding: 0.18rem 0.5rem;
+      flex-shrink: 0;
+      letter-spacing: 0.06em;
+    }
+
+    .tc-footer {
+      padding: 0.9rem 1.25rem;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .tc-footer span {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.64rem;
+      letter-spacing: 0.06em;
+    }
+
+    /* ─── TESTIMONIALS ────────────────────────────────── */
+    .testi-section {
+      background: var(--surface);
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 6rem 2.5rem;
+    }
+    .testi-inner { max-width: 1200px; margin: 0 auto; }
+
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3.5rem;
+    }
+
+    .t-card {
+      background: var(--bg);
+      border: 1px solid var(--border-subtle);
+      padding: 2rem;
+      transition: border-color 0.2s, transform 0.25s ease;
+    }
+    .t-card:hover { border-color: var(--border); transform: translateY(-4px); }
+
+    .t-quote {
+      font-size: 0.875rem;
+      line-height: 1.8;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+    .t-quote em { color: var(--text); font-style: normal; font-weight: 500; }
+
+    .t-author { display: flex; align-items: center; gap: 0.75rem; }
+
+    .t-avatar {
+      width: 38px; height: 38px;
+      background: var(--lime-dim);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Bebas Neue', cursive;
+      font-size: 1rem;
+      color: var(--lime);
+      flex-shrink: 0;
+    }
+
+    .t-name { font-size: 0.875rem; font-weight: 600; color: var(--text); }
+    .t-role {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.64rem;
+      color: var(--muted);
+      margin-top: 0.2rem;
+      letter-spacing: 0.06em;
+    }
+
+    /* ─── CTA ─────────────────────────────────────────── */
+    .cta-section { padding: 8rem 2.5rem; position: relative; overflow: hidden; }
+    .cta-bg-text {
+      position: absolute;
+      right: -1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: 'Bebas Neue', cursive;
+      font-size: 20rem;
+      color: rgba(184,255,0,0.025);
+      pointer-events: none;
+      line-height: 1;
+      letter-spacing: -0.05em;
+      user-select: none;
+    }
+
+    .cta-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 5rem;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .plan-cards { display: flex; flex-direction: column; gap: 1px; min-width: 260px; }
+
+    .plan-card {
+      background: var(--surface);
+      border: 1px solid var(--border-subtle);
+      padding: 1.5rem;
+    }
+    .plan-card.featured { border-color: rgba(184,255,0,0.28); position: relative; }
+
+    .plan-badge {
+      position: absolute;
+      top: -1px; left: 1.5rem;
+      background: var(--lime);
+      color: #06060C;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      padding: 0.2rem 0.65rem;
+    }
+
+    .plan-price {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 2.75rem;
+      color: var(--lime);
+      line-height: 1;
+    }
+    .plan-price .cents {
+      font-size: 1.1rem;
+      color: var(--muted);
+    }
+    .plan-name {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.66rem;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-top: 0.3rem;
+      text-transform: uppercase;
+    }
+    .plan-perks {
+      list-style: none;
+      margin-top: 1.1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+    .plan-perks li {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .plan-perks .chk { color: var(--lime); font-size: 0.7rem; flex-shrink: 0; }
+
+    /* ─── FOOTER ──────────────────────────────────────── */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border-subtle);
+      padding: 2.5rem 2.5rem;
+    }
+    .foot-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .foot-logo {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 1.1rem;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+    }
+    .foot-links { display: flex; gap: 2rem; list-style: none; }
+    .foot-links a {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .foot-links a:hover { color: var(--text); }
+    .foot-copy {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      color: rgba(114,112,160,0.45);
+    }
+
+    /* ─── REVEAL ──────────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ─── RESPONSIVE ──────────────────────────────────── */
+    @media (max-width: 900px) {
+      .value-grid { grid-template-columns: 1fr; gap: 1px; }
+      .features-layout { grid-template-columns: 1fr; gap: 3rem; }
+      .testi-grid { grid-template-columns: 1fr; }
+      .cta-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .plan-cards { max-width: 100%; }
+      .nav-links { display: none; }
+      .hero-metrics { gap: 1.5rem; flex-wrap: wrap; }
+      .foot-inner { flex-direction: column; gap: 1.5rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ─────────────────────────────────────────────────── -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="pulse-dot"></div>
+    AI Automation Society
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#community">Community</a></li>
+  </ul>
+  <button class="btn-nav">Join Free →</button>
+</nav>
+
+<!-- ── HERO ─────────────────────────────────────────────────── -->
+<div class="hero">
+  <div class="hero-bg">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="hero-grid"></div>
+  </div>
+  <div class="hero-content">
+    <div class="eyebrow">
+      <div class="eyebrow-line"></div>
+      <span>Now accepting members</span>
+      <div class="eyebrow-line"></div>
+    </div>
+
+    <h1>
+      Automate
+      <span class="lime">Everything.</span>
+      <span class="dim">Together.</span>
+    </h1>
+
+    <p class="hero-sub">
+      The premier community for professionals building, shipping, and scaling AI-powered automations. Share workflows, get expert feedback, and stay ahead of the curve.
+    </p>
+
+    <div class="hero-ctas">
+      <a href="#" class="btn-primary">
+        Join the Society
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2.5 7.5h10M8.5 3.5l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="#features" class="btn-ghost">See What's Inside</a>
+    </div>
+
+    <div class="hero-metrics">
+      <div class="metric">
+        <div class="num">4,800+</div>
+        <div class="lbl">Active Members</div>
+      </div>
+      <div class="metric">
+        <div class="num">1,200+</div>
+        <div class="lbl">Workflows Shared</div>
+      </div>
+      <div class="metric">
+        <div class="num">320+</div>
+        <div class="lbl">Hours of Content</div>
+      </div>
+      <div class="metric">
+        <div class="num">98%</div>
+        <div class="lbl">Would Recommend</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── MARQUEE ───────────────────────────────────────────────── -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <!-- first set -->
+    <div class="marquee-item"><div class="dot"></div> n8n Automations</div>
+    <div class="marquee-item"><div class="dot"></div> Make.com Flows</div>
+    <div class="marquee-item"><div class="dot"></div> Zapier Workflows</div>
+    <div class="marquee-item"><div class="dot"></div> Claude AI Agents</div>
+    <div class="marquee-item"><div class="dot"></div> GPT-4 Integrations</div>
+    <div class="marquee-item"><div class="dot"></div> Python Scripts</div>
+    <div class="marquee-item"><div class="dot"></div> Airtable Automations</div>
+    <div class="marquee-item"><div class="dot"></div> Notion Workflows</div>
+    <div class="marquee-item"><div class="dot"></div> Slack Bots</div>
+    <div class="marquee-item"><div class="dot"></div> CRM Syncs</div>
+    <div class="marquee-item"><div class="dot"></div> Lead Gen AI</div>
+    <div class="marquee-item"><div class="dot"></div> AI Content Engines</div>
+    <!-- duplicate for seamless loop -->
+    <div class="marquee-item"><div class="dot"></div> n8n Automations</div>
+    <div class="marquee-item"><div class="dot"></div> Make.com Flows</div>
+    <div class="marquee-item"><div class="dot"></div> Zapier Workflows</div>
+    <div class="marquee-item"><div class="dot"></div> Claude AI Agents</div>
+    <div class="marquee-item"><div class="dot"></div> GPT-4 Integrations</div>
+    <div class="marquee-item"><div class="dot"></div> Python Scripts</div>
+    <div class="marquee-item"><div class="dot"></div> Airtable Automations</div>
+    <div class="marquee-item"><div class="dot"></div> Notion Workflows</div>
+    <div class="marquee-item"><div class="dot"></div> Slack Bots</div>
+    <div class="marquee-item"><div class="dot"></div> CRM Syncs</div>
+    <div class="marquee-item"><div class="dot"></div> Lead Gen AI</div>
+    <div class="marquee-item"><div class="dot"></div> AI Content Engines</div>
+  </div>
+</div>
+
+<!-- ── VALUE PROPS ───────────────────────────────────────────── -->
+<div id="about">
+  <div class="section">
+    <div class="section-label">// Why Join</div>
+    <h2>Built for builders <span class="dim">who move fast.</span></h2>
+    <div class="value-grid reveal">
+      <div class="v-card">
+        <div class="v-icon">⚡</div>
+        <h3>Real Workflows</h3>
+        <p>A growing library of battle-tested automation workflows across n8n, Make, Zapier, and custom code — shared by practitioners, not marketers.</p>
+      </div>
+      <div class="v-card">
+        <div class="v-icon">🧠</div>
+        <h3>Expert Network</h3>
+        <p>Direct access to automation engineers, AI consultants, and operators who've shipped at scale. No gatekeeping — just honest, actionable answers.</p>
+      </div>
+      <div class="v-card">
+        <div class="v-icon">🔭</div>
+        <h3>Stay Ahead</h3>
+        <p>Weekly breakdowns of new AI tools, model releases, and automation patterns. Know what matters before it hits the mainstream.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── FEATURES ──────────────────────────────────────────────── -->
+<div id="features">
+  <div class="section" style="padding-top: 2rem;">
+    <div class="features-layout">
+      <div>
+        <div class="section-label">// What You Get</div>
+        <h2>Everything you need<br><span class="dim">to go faster.</span></h2>
+        <div class="feat-list" style="margin-top: 2.75rem;">
+          <div class="feat-row">
+            <span class="feat-num">01</span>
+            <div>
+              <h4>Private Community Access</h4>
+              <p>Channels organized by tool, industry, and experience level. Find your people and the answers you need — instantly.</p>
+            </div>
+          </div>
+          <div class="feat-row">
+            <span class="feat-num">02</span>
+            <div>
+              <h4>Weekly Live Sessions</h4>
+              <p>Live build-alongs, teardowns, and Q&As with guests who actually automate for a living. Full replays included.</p>
+            </div>
+          </div>
+          <div class="feat-row">
+            <span class="feat-num">03</span>
+            <div>
+              <h4>Workflow Template Library</h4>
+              <p>Import-ready templates for lead gen, content ops, reporting, and more. Updated weekly by the community.</p>
+            </div>
+          </div>
+          <div class="feat-row">
+            <span class="feat-num">04</span>
+            <div>
+              <h4>Curated AI Tools Directory</h4>
+              <p>Member-rated directory of every AI tool worth using, with honest reviews and integration guides.</p>
+            </div>
+          </div>
+          <div class="feat-row">
+            <span class="feat-num">05</span>
+            <div>
+              <h4>Members-Only Job Board</h4>
+              <p>Automation roles and freelance opportunities posted exclusively for and by members. No noise.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="terminal-card">
+          <div class="tc-bar">
+            <div class="tc-dot" style="background:#B8FF00"></div>
+            <div class="tc-dot" style="background:rgba(184,255,0,0.3)"></div>
+            <div class="tc-dot" style="background:rgba(184,255,0,0.1)"></div>
+            <span class="tc-label">workflow_library.db</span>
+          </div>
+          <div class="tc-body">
+            <div class="wf-row">
+              <div class="wf-icon">🤖</div>
+              <span class="wf-text">AI Lead Qualification → CRM Sync</span>
+              <span class="wf-tag">n8n</span>
+            </div>
+            <div class="wf-row">
+              <div class="wf-icon">📧</div>
+              <span class="wf-text">Smart Email Triage & Auto-Reply</span>
+              <span class="wf-tag">Make</span>
+            </div>
+            <div class="wf-row">
+              <div class="wf-icon">📊</div>
+              <span class="wf-text">Weekly Analytics Report Generator</span>
+              <span class="wf-tag">Python</span>
+            </div>
+            <div class="wf-row">
+              <div class="wf-icon">🔗</div>
+              <span class="wf-text">Multi-platform Content Distributor</span>
+              <span class="wf-tag">Zapier</span>
+            </div>
+            <div class="wf-row">
+              <div class="wf-icon">💬</div>
+              <span class="wf-text">Customer Support AI Agent</span>
+              <span class="wf-tag">Claude</span>
+            </div>
+            <div class="wf-row">
+              <div class="wf-icon">🛒</div>
+              <span class="wf-text">E-commerce Order & Fulfillment Bot</span>
+              <span class="wf-tag">Zapier</span>
+            </div>
+          </div>
+          <div class="tc-footer">
+            <span style="color:var(--muted)">1,247 workflows available</span>
+            <span style="color:var(--lime)">+12 added this week</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TESTIMONIALS ──────────────────────────────────────────── -->
+<div class="testi-section" id="community">
+  <div class="testi-inner">
+    <div class="section-label">// From the Community</div>
+    <h2>Real results from <span class="dim">real members.</span></h2>
+    <div class="testi-grid reveal">
+      <div class="t-card">
+        <p class="t-quote">"Joined six months ago and <em>completely transformed how my agency operates.</em> The workflow library alone saved us 40+ hours in the first month."</p>
+        <div class="t-author">
+          <div class="t-avatar">MR</div>
+          <div>
+            <div class="t-name">Marcus R.</div>
+            <div class="t-role">Agency Owner · Chicago</div>
+          </div>
+        </div>
+      </div>
+      <div class="t-card">
+        <p class="t-quote">"The weekly live sessions are worth the price alone. <em>I've learned more practical AI automation here</em> than in any paid course I've taken."</p>
+        <div class="t-author">
+          <div class="t-avatar">SC</div>
+          <div>
+            <div class="t-name">Sarah C.</div>
+            <div class="t-role">Ops Lead · SaaS Startup</div>
+          </div>
+        </div>
+      </div>
+      <div class="t-card">
+        <p class="t-quote">"Found my last two clients through the job board. <em>The ROI is embarrassingly good</em> for what the membership actually costs."</p>
+        <div class="t-author">
+          <div class="t-avatar">JL</div>
+          <div>
+            <div class="t-name">James L.</div>
+            <div class="t-role">Freelance Automation Dev</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── CTA ───────────────────────────────────────────────────── -->
+<div class="cta-section">
+  <div class="cta-bg-text">JOIN</div>
+  <div class="cta-inner">
+    <div class="reveal">
+      <div class="section-label">// Get Started Today</div>
+      <h2>Your automation<br>edge <span class="dim">starts here.</span></h2>
+      <p style="font-size:1rem;color:var(--muted);line-height:1.8;margin-top:1.1rem;max-width:460px;font-weight:300;">
+        Join thousands of professionals building smarter workflows, growing their skills, and connecting with the best minds in AI automation.
+      </p>
+      <div class="hero-ctas" style="margin-top: 2rem;">
+        <a href="#" class="btn-primary" style="font-size:0.95rem;padding:1rem 2.25rem;">
+          Join Free — Start Today
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2.5 7.5h10M8.5 3.5l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <p style="font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--muted);margin-top:1rem;letter-spacing:0.08em;">
+        No credit card required &nbsp;·&nbsp; Cancel anytime
+      </p>
+    </div>
+
+    <div class="plan-cards reveal">
+      <div class="plan-card">
+        <div class="plan-price">FREE</div>
+        <div class="plan-name">Community Access</div>
+        <ul class="plan-perks">
+          <li><span class="chk">✓</span> Community channels</li>
+          <li><span class="chk">✓</span> 50 workflow templates</li>
+          <li><span class="chk">✓</span> Weekly newsletter</li>
+          <li><span class="chk">✓</span> Tool directory access</li>
+        </ul>
+      </div>
+      <div class="plan-card featured">
+        <div class="plan-badge">MOST POPULAR</div>
+        <div class="plan-price">$29<span class="cents">/mo</span></div>
+        <div class="plan-name">Pro Membership</div>
+        <ul class="plan-perks">
+          <li><span class="chk">✓</span> Everything in Free</li>
+          <li><span class="chk">✓</span> Full workflow library</li>
+          <li><span class="chk">✓</span> Live sessions + replays</li>
+          <li><span class="chk">✓</span> Members-only job board</li>
+          <li><span class="chk">✓</span> Priority support</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ────────────────────────────────────────────────── -->
+<footer>
+  <div class="foot-inner">
+    <div class="foot-logo">AI Automation Society</div>
+    <ul class="foot-links">
+      <li><a href="#">About</a></li>
+      <li><a href="#">Community</a></li>
+      <li><a href="#">Privacy</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <div class="foot-copy">© 2025 AI Automation Society. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
