@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Business Profile Setup Guide — Landry's Contractors & Docks LLC</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --orange: #FF6A00;
+      --orange-light: #FFF3EB;
+      --orange-mid: rgba(255,106,0,0.15);
+      --dark: #1A1A1A;
+      --mid: #555;
+      --muted: #888;
+      --border: #E5E5E5;
+      --bg: #F8F7F5;
+      --white: #FFFFFF;
+      --google-blue: #4285F4;
+      --google-green: #34A853;
+      --google-red: #EA4335;
+      --google-yellow: #FBBC04;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--dark);
+      font-family: 'DM Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      background: var(--dark);
+      padding: 2.5rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 4px solid var(--orange);
+    }
+
+    .header-left h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.6rem;
+      color: #fff;
+      font-weight: 400;
+      line-height: 1.2;
+    }
+
+    .header-left p {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--orange);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-top: 0.4rem;
+    }
+
+    .header-badge {
+      background: var(--orange);
+      color: #fff;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.5rem 1.1rem;
+    }
+
+    /* ── INTRO ── */
+    .intro {
+      max-width: 860px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    .intro h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--dark);
+      margin-bottom: 0.75rem;
+    }
+
+    .intro p {
+      font-size: 0.95rem;
+      color: var(--mid);
+      line-height: 1.75;
+    }
+
+    .time-box {
+      background: var(--orange-light);
+      border: 1px solid rgba(255,106,0,0.2);
+      padding: 1.25rem 1.5rem;
+      text-align: center;
+      flex-shrink: 0;
+      min-width: 130px;
+    }
+
+    .time-box .t {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.2rem;
+      color: var(--orange);
+      line-height: 1;
+    }
+
+    .time-box .l {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-top: 0.3rem;
+    }
+
+    /* ── WHAT YOU NEED ── */
+    .need-bar {
+      max-width: 860px;
+      margin: 0 auto 3rem;
+      padding: 0 2rem;
+    }
+
+    .need-box {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--orange);
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .need-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--orange);
+      flex-shrink: 0;
+    }
+
+    .need-items {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .need-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--dark);
+    }
+
+    .need-item .ck { color: var(--google-green); font-size: 0.8rem; }
+
+    /* ── STEPS ── */
+    .steps {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 2rem 4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .step-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .step-header {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .step-num {
+      width: 36px;
+      height: 36px;
+      background: var(--orange);
+      color: #fff;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.85rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .step-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--dark);
+    }
+
+    .step-tag {
+      margin-left: auto;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      background: var(--bg);
+      padding: 0.25rem 0.6rem;
+      border: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    .step-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    .step-instructions {
+      padding: 1.5rem;
+      border-right: 1px solid var(--border);
+    }
+
+    .step-instructions p {
+      font-size: 0.875rem;
+      color: var(--mid);
+      line-height: 1.75;
+      margin-bottom: 1rem;
+    }
+
+    .step-instructions p:last-child { margin-bottom: 0; }
+
+    .step-instructions strong { color: var(--dark); font-weight: 600; }
+
+    .tip-box {
+      background: var(--orange-light);
+      border-left: 2px solid var(--orange);
+      padding: 0.75rem 1rem;
+      margin-top: 1rem;
+    }
+
+    .tip-box p {
+      font-size: 0.8rem !important;
+      color: var(--orange) !important;
+      margin: 0 !important;
+    }
+
+    .step-mockup {
+      padding: 1.5rem;
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .mockup-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+    }
+
+    /* Browser chrome mockup */
+    .browser {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+
+    .browser-bar {
+      background: #F1F3F4;
+      padding: 0.5rem 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .b-dot { width: 8px; height: 8px; border-radius: 50%; }
+
+    .b-url {
+      flex: 1;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 0.2rem 0.75rem;
+      font-size: 0.7rem;
+      color: var(--mid);
+      font-family: 'DM Mono', monospace;
+    }
+
+    .browser-content { padding: 1rem; }
+
+    /* Google search mockup */
+    .g-logo {
+      display: flex;
+      gap: 0;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .g-b { color: var(--google-blue); }
+    .g-r { color: var(--google-red); }
+    .g-y { color: var(--google-yellow); }
+    .g-g { color: var(--google-green); }
+
+    .g-search {
+      display: flex;
+      align-items: center;
+      border: 1px solid #ddd;
+      border-radius: 20px;
+      padding: 0.4rem 0.9rem;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+      color: var(--mid);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+
+    .g-search-icon { color: var(--muted); font-size: 0.7rem; }
+
+    /* Form mockup */
+    .mock-form { display: flex; flex-direction: column; gap: 0.6rem; }
+
+    .mock-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .mock-field label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: var(--mid);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .mock-input {
+      background: #F8F9FA;
+      border: 1px solid #DADCE0;
+      border-radius: 4px;
+      padding: 0.45rem 0.65rem;
+      font-size: 0.78rem;
+      color: var(--dark);
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .mock-input.filled {
+      background: #fff;
+      border-color: var(--google-blue);
+      color: var(--dark);
+    }
+
+    .mock-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.45rem 1rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      font-family: 'DM Sans', sans-serif;
+      cursor: default;
+      border: none;
+    }
+
+    .mock-btn-blue { background: var(--google-blue); color: #fff; }
+    .mock-btn-outline { background: #fff; color: var(--google-blue); border: 1px solid #DADCE0; }
+
+    /* Business card mockup */
+    .mock-biz-card {
+      border: 1px solid #DADCE0;
+      border-radius: 8px;
+      padding: 0.75rem;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .mock-biz-info h4 {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    .mock-biz-info p {
+      font-size: 0.68rem;
+      color: var(--muted);
+    }
+
+    /* Verification mockup */
+    .verify-options { display: flex; flex-direction: column; gap: 0.5rem; }
+
+    .verify-option {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.6rem 0.75rem;
+      border: 1px solid #DADCE0;
+      border-radius: 6px;
+      background: #fff;
+      cursor: default;
+    }
+
+    .verify-option.selected { border-color: var(--google-blue); background: #E8F0FE; }
+
+    .v-radio {
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      border: 2px solid #DADCE0;
+      flex-shrink: 0;
+    }
+
+    .v-radio.checked { border-color: var(--google-blue); background: var(--google-blue); }
+
+    .v-text { font-size: 0.75rem; color: var(--dark); }
+    .v-sub { font-size: 0.65rem; color: var(--muted); }
+
+    /* Success state */
+    .success-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: #E6F4EA;
+      border: 1px solid #CEEAD6;
+      border-radius: 6px;
+      padding: 0.75rem 1rem;
+    }
+
+    .success-icon {
+      width: 20px; height: 20px;
+      background: var(--google-green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 0.65rem;
+      flex-shrink: 0;
+    }
+
+    .success-text { font-size: 0.75rem; color: #1E8E3E; font-weight: 500; }
+
+    /* Info box */
+    .info-entry {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-top: 0.5rem;
+    }
+
+    .info-row {
+      display: flex;
+      gap: 0.75rem;
+      align-items: baseline;
+    }
+
+    .info-key {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--muted);
+      width: 70px;
+      flex-shrink: 0;
+    }
+
+    .info-val {
+      font-size: 0.78rem;
+      color: var(--dark);
+      font-weight: 500;
+    }
+
+    .info-val.orange { color: var(--orange); }
+
+    /* Footer */
+    footer {
+      background: var(--dark);
+      border-top: 3px solid var(--orange);
+      padding: 1.5rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    footer p {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.08em;
+    }
+
+    footer .phone {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--orange);
+      letter-spacing: 0.08em;
+    }
+
+    @media (max-width: 680px) {
+      .step-body { grid-template-columns: 1fr; }
+      .step-instructions { border-right: none; border-bottom: 1px solid var(--border); }
+      .intro { grid-template-columns: 1fr; }
+    }
+
+    @media print {
+      body { background: #fff; }
+      .step-card { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-left">
+    <h1>Google Business Profile Setup</h1>
+    <p>Step-by-step guide for Landry's Contractors & Docks LLC</p>
+  </div>
+  <div class="header-badge">Quick Setup Guide</div>
+</div>
+
+<!-- INTRO -->
+<div class="intro">
+  <div>
+    <h2>Get your business on Google Maps & Search</h2>
+    <p>Follow these steps to create your free Google Business Profile. Once verified, customers searching for contractors in Jasper will find your business directly on Google — with your phone number, website, and reviews all in one place.</p>
+  </div>
+  <div class="time-box">
+    <div class="t">~10</div>
+    <div class="l">Minutes to complete</div>
+  </div>
+</div>
+
+<!-- WHAT YOU NEED -->
+<div class="need-bar">
+  <div class="need-box">
+    <div class="need-label">You'll need</div>
+    <div class="need-items">
+      <div class="need-item"><span class="ck">✔</span> A Google (Gmail) account</div>
+      <div class="need-item"><span class="ck">✔</span> Your business phone: 205-522-9154</div>
+      <div class="need-item"><span class="ck">✔</span> Your website URL</div>
+      <div class="need-item"><span class="ck">✔</span> Your service area (Jasper, AL)</div>
+    </div>
+  </div>
+</div>
+
+<!-- STEPS -->
+<div class="steps">
+
+  <!-- STEP 1 -->
+  <div class="step-card">
+    <div class="step-header">
+      <div class="step-num">01</div>
+      <div class="step-title">Go to the Google Business website</div>
+      <div class="step-tag">Open browser</div>
+    </div>
+    <div class="step-body">
+      <div class="step-instructions">
+        <p>Open any web browser (Chrome, Safari, Edge) on your phone or computer.</p>
+        <p>In the address bar at the top, type: <strong>business.google.com</strong> and press Enter.</p>
+        <p>You'll land on the Google Business Profile homepage. Click the blue <strong>"Manage now"</strong> or <strong>"Get started"</strong> button.</p>
+        <div class="tip-box">
+          <p>💡 Tip: Make sure you're signed into the Google account you want linked to the business before clicking.</p>
+        </div>
+      </div>
+      <div class="step-mockup">
+        <div class="mockup-label">What you'll see</div>
+        <div class="browser">
+          <div class="browser-bar">
+            <div class="b-dot" style="background:#FF5F57"></div>
+            <div class="b-dot" style="background:#FEBC2E"></div>
+            <div class="b-dot" style="background:#28C840"></div>
+            <div class="b-url">business.google.com</div>
+          </div>
+          <div class="browser-content">
+            <div class="g-logo">
+              <span class="g-b">G</span><span class="g-r">o</span><span class="g-y">o</span><span class="g-b">g</span><span class="g-g">l</span><span class="g-r">e</span>
+            </div>
+            <p style="font-size:0.78rem;color:#333;margin-bottom:0.6rem;font-weight:500;">Manage your Business Profile</p>
+            <p style="font-size:0.7rem;color:var(--muted);margin-bottom:0.8rem;line-height:1.5;">Connect with customers on Google Search and Maps</p>
+            <button class="mock-btn mock-btn-blue" style="width:100%">Manage now →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step-card">
+    <div class="step-header">
+      <div class="step-num">02</div>
+      <div class="step-title">Sign in to your Google account</div>
+      <div class="step-tag">Sign in</div>
+    </div>
+    <div class="step-body">
+      <div class="step-instructions">
+        <p>Google will ask you to sign in. Enter your <strong>Gmail address</strong> and password.</p>
+        <p>If you don't have a Google account, click <strong>"Create account"</strong> and follow the steps to make one — it's free.</p>
+        <p>Use an email you check regularly since Google will send your verification code here.</p>
+      </div>
+      <div class="step-mockup">
+        <div class="mockup-label">What you'll see</div>
+        <div class="browser">
+          <div class="browser-bar">
+            <div class="b-dot" style="background:#FF5F57"></div>
+            <div class="b-dot" style="background:#FEBC2E"></div>
+            <div class="b-dot" style="background:#28C840"></div>
+            <div class="b-url">accounts.google.com</div>
+          </div>
+          <div class="browser-content">
+            <div class="g-logo" style="font-size:1rem;margin-bottom:0.5rem">
+              <span class="g-b">G</span><span class="g-r">o</span><span class="g-y">o</span><span class="g-b">g</span><span class="g-g">l</span><span class="g-r">e</span>
+            </div>
+            <p style="font-size:0.82rem;font-weight:600;color:#333;margin-bottom:0.75rem;">Sign in</p>
+            <div class="mock-form">
+              <div class="mock-input filled">yourname@gmail.com</div>
+              <div class="mock-input" style="color:var(--muted)">Enter your password</div>
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-top:0.25rem">
+                <span style="font-size:0.68rem;color:var(--google-blue)">Forgot password?</span>
+                <button class="mock-btn mock-btn-blue">Next</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step-card">
+    <div class="step-header">
+      <div class="step-num">03</div>
+      <div class="step-title">Enter your business name</div>
+      <div class="step-tag">Business name</div>
+    </div>
+    <div class="step-body">
+      <div class="step-instructions">
+        <p>Google will ask: <strong>"What's the name of your business?"</strong></p>
+        <p>Type exactly: <strong>Landry's Contractors & Docks LLC</strong></p>
+        <p>If Google shows your business in a dropdown as an existing listing, click it. If not, click <strong>"Create a business with this name"</strong> at the bottom of the list.</p>
+        <div class="tip-box">
+          <p>💡 Type the name exactly as shown — spelling and punctuation matter for search results.</p>
+        </div>
+      </div>
+      <div class="step-mockup">
+        <div class="mockup-label">What you'll see</div>
+        <div class="browser">
+          <div class="browser-bar">
+            <div class="b-dot" style="background:#FF5F57"></div>
+            <div class="b-dot" style="background:#FEBC2E"></div>
+            <div class="b-dot" style="background:#28C840"></div>
+            <div class="b-url">business.google.com/create</div>
+          </div>
+          <div class="browser-content">
+            <p style="font-size:0.82rem;font-weight:600;color:#333;margin-bottom:0.75rem;">What's the name of your business?</p>
+            <div class="mock-form">
+              <div class="mock-input filled">Landry's Contractors & Docks LLC</div>
+              <div style="border:1px solid #DADCE0;border-radius:4px;overflow:hidden;margin-top:-0.3rem">
+                <div style="padding:0.5rem 0.65rem;font-size:0.72rem;color:var(--google-blue);border-bottom:1px solid #DADCE0;background:#E8F0FE">
+                  + Create a business with this name
+                </div>
+              </div>
+              <button class="mock-btn mock-btn-blue" style="align-self:flex-end;margin-top:0.25rem">Next</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step-card">
+    <div class="step-header">
+      <div class="step-num">04</div>
+      <div class="step-title">Choose your business category</div>
+      <div class="step-tag">Category</div>
+    </div>
+    <div class="step-body">
+      <div class="step-instructions">
+        <p>Google asks: <strong>"What category best describes your business?"</strong></p>
+        <p>Type <strong>"General Contractor"</strong> in the search box and select it from the dropdown.</p>
+        <p>You can add more categories later (like "Dock Builder", "Roofing Contractor") after your profile is live — but start with General Contractor for now.</p>
+      </div>
+      <div class="step-mockup">
+        <div class="mockup-label">What you'll see</div>
+        <div class="browser">
+          <div class="browser-bar">
+            <div class="b-dot" style="background:#FF5F57"></div>
+            <div class="b-dot" style="background:#FEBC2E"></div>
+            <div class="b-dot" style="background:#28C840"></div>
+            <div class="b-url">business.google.com/create</div>
+          </div>
+          <div class="browser-content">
+            <p style="font-size:0.82rem;font-weight:600;color:#333;margin-bottom:0.75rem;">What category best describes your business?</p>
+            <div class="mock-form">
+              <div class="mock-input filled">General Contractor</div>
+              <div style="border:1px solid #DADCE0;border-radius:4px;overflow:hidden;margin-top:-0.3rem">
+                <div style="padding:0.5rem 0.65rem;font-size:0.72rem;color:#333;border-bottom:1px solid #DADCE0;background:#E8F0FE">✔ General Contractor</div>
+                <div style="padding:0.5rem 0.65rem;font-size:0.72rem;color:#333;border-bottom:1px solid #DADCE0;">Building Contractor</div>
+                <div style="padding:0.5rem 0.65rem;font-size:0.72rem;color:#333;">Construction Company</div>
+              </div>
+              <button class="mock-btn mock-btn-blue" style="align-self:flex-end;margin-top:0.25rem">Next</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step-card">
+    <div class="step-header">
+      <div class="step-num">05</div>
+      <div class="step-title">Set your service area</div>
+      <div class="step-tag">Location</div>
+    </div>
+    <div class="step-body">
+      <div class="step-instructions">
+        <p>Google asks if you have a physical storefront or serve customers at their location.</p>
+        <p>Select <strong>"Yes, I serve customers at their locations"</strong> since you travel to job sites.</p>
+        <p>Then add your service areas: type <strong>Jasper, AL</strong> and add any nearby cities or counties you work in (Walker County, Winston County, etc.).</p>
+      </div>
+      <div class="step-mockup">
+        <div class="mockup-label">What you'll see</div>
+        <div class="browser">
+          <div class="browser-bar">
+            <div class="b-dot" style="background:#FF5F57"></div>
+            <div class="b-dot" style="background:#FEBC2E"></div>
+            <div class="b-dot" style="background:#28C840"></div>
+            <div class="b-url">business.google.com/create</div>
+          </div>
+          <div class="browser-content">
+            <p style="font-size:0.82rem;font-weight:600;color:#333;margin-bottom:0.75rem;">Where do you serve your customers?</p>
+            <div class="verify-options">
+              <div class="verify-option selected">
+                <div class="v-radio checked"></div>
+                <div>
+                  <div class="v-text">I serve customers at their locations</div>
+                  <div class="v-sub">Add your service areas</div>
+                </div>
+              </div>
+              <div class="verify-option">
+                <div class="v-radio"></div>
+                <div>
+                  <div class="v-text">I have a storefront customers visit</div>
+                </div>
+              </div>
+            </div>
+            <div class="mock-input filled" style="margin-top:0.75rem">Jasper, AL · Walker County, AL</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 6 -->
+  <div class="step-card">
+    <div class="step-header">
+      <div class="step-num">06</div>
+      <div class="step-title">Add your phone number & website</div>
+      <div class="step-tag">Contact info</div>
+    </div>
+    <div class="step-body">
+      <div class="step-instructions">
+        <p>Enter your contact details exactly as shown below:</p>
+        <div class="info-entry">
+          <div class="info-row">
+            <span class="info-key">Phone</span>
+            <span class="info-val orange">205-522-9154</span>
+          </div>
+          <div class="info-row">
+            <span class="info-key">Website</span>
+            <span class="info-val" style="font-size:0.7rem;word-break:break-all">https://crowelle868-droid.github.io/Frank-Landry-Website</span>
+          </div>
+        </div>
+        <div class="tip-box" style="margin-top:1rem">
+          <p>💡 Once Frankie gets a custom domain, update the website field to the new URL.</p>
+        </div>
+      </div>
+      <div class="step-mockup">
+        <div class="mockup-label">What you'll see</div>
+        <div class="browser">
+          <div class="browser-bar">
+            <div class="b-dot" style="background:#FF5F57"></div>
+            <div class="b-dot" style="background:#FEBC2E"></div>
+            <div class="b-dot" style="background:#28C840"></div>
+            <div class="b-url">business.google.com/create</div>
+          </div>
+          <div class="browser-content">
+            <p style="font-size:0.82rem;font-weight:600;color:#333;margin-bottom:0.75rem;">How can customers contact you?</p>
+            <div class="mock-form">
+              <div class="mock-field">
+                <label>Phone number</label>
+                <div class="mock-input filled">205-522-9154</div>
+              </div>
+              <div class="mock-field">
+                <label>Website (optional)</label>
+                <div class="mock-input filled" style="font-size:0.65rem">crowelle868-droid.github.io/Frank-Landry-Website</div>
+              </div>
+              <button class="mock-btn mock-btn-blue" style="align-self:flex-end;margin-top:0.25rem">Next</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 7 -->
+  <div class="step-card">
+    <div class="step-header">
+      <div class="step-num">07</div>
+      <div class="step-title">Verify your business</div>
+      <div class="step-tag">Final step</div>
+    </div>
+    <div class="step-body">
+      <div class="step-instructions">
+        <p>Google needs to confirm the business is real. You'll be offered a few options:</p>
+        <p><strong>📱 Phone/Text</strong> — Google texts or calls <strong>205-522-9154</strong> with a code. Fastest option.</p>
+        <p><strong>📧 Email</strong> — Google sends a code to your Gmail. Check spam if you don't see it.</p>
+        <p><strong>📬 Postcard</strong> — Google mails a card to your address in 5–14 days.</p>
+        <p>Choose <strong>Phone or Text</strong> for the fastest verification. Enter the 5-digit code Google sends you.</p>
+        <div class="tip-box">
+          <p>💡 Once verified, your business appears on Google Maps within 3–5 days.</p>
+        </div>
+      </div>
+      <div class="step-mockup">
+        <div class="mockup-label">What you'll see</div>
+        <div class="browser">
+          <div class="browser-bar">
+            <div class="b-dot" style="background:#FF5F57"></div>
+            <div class="b-dot" style="background:#FEBC2E"></div>
+            <div class="b-dot" style="background:#28C840"></div>
+            <div class="b-url">business.google.com/verify</div>
+          </div>
+          <div class="browser-content">
+            <p style="font-size:0.82rem;font-weight:600;color:#333;margin-bottom:0.75rem;">Choose how to verify</p>
+            <div class="verify-options">
+              <div class="verify-option selected">
+                <div class="v-radio checked"></div>
+                <div>
+                  <div class="v-text">📱 Text message</div>
+                  <div class="v-sub">Get a code at 205-522-9154</div>
+                </div>
+              </div>
+              <div class="verify-option">
+                <div class="v-radio"></div>
+                <div>
+                  <div class="v-text">📧 Email</div>
+                  <div class="v-sub">Send code to your Gmail</div>
+                </div>
+              </div>
+              <div class="verify-option">
+                <div class="v-radio"></div>
+                <div>
+                  <div class="v-text">📬 Postcard</div>
+                  <div class="v-sub">Arrives in 5–14 days</div>
+                </div>
+              </div>
+            </div>
+            <div class="success-badge" style="margin-top:0.75rem">
+              <div class="success-icon">✓</div>
+              <div class="success-text">Business verified successfully!</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>Prepared for Frankie Landry · Landry's Contractors & Docks LLC</p>
+  <div class="phone">205-522-9154</div>
+  <p>Guide created by your web developer</p>
+</footer>
+
+</body>
+</html>
